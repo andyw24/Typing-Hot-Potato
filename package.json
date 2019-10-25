@@ -1,0 +1,25 @@
+{
+  "name": "socketio",
+  "version": "1.0.0",
+  "description": "a test of the capabilities of socketio",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+  	"start": "node index.js",
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyw24/socketIO.git"
+  },
+  "author": "Andy Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyw24/socketIO/issues"
+  },
+  "homepage": "https://github.com/andyw24/socketIO#readme"
+}
