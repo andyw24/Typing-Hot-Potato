@@ -21,7 +21,6 @@ io.use(sharedsession(session, {
 })); 
 //----------------session----------------
 
-var users = [];
 var allRooms = [];
 
 app.use('/public', express.static(__dirname + '/public'));
@@ -37,9 +36,7 @@ io.on('connection', function(socket){
   socket.on('login', function(usr){
     //socket['username'] = usr;
     socket.handshake.session.username = usr;
-    users.push(socket.id);
     console.log("A NEW USER HAS LOGGED IN: " + socket.handshake.session.username);
-    console.log("userlist: " + users);
     
     //redirect them to roomJoining.html
     var destination = '/public/pages/roomJoining.html';
@@ -61,7 +58,8 @@ io.on('connection', function(socket){
         }
       }
     }
-
+    var destination = '/public/pages/room.html';
+    socket.emit('redirect', destination);
     socket.join(roomCode);
     allRooms.push(roomCode);
     console.log("ADDED: " + allRooms[index]);
@@ -75,15 +73,19 @@ io.on('connection', function(socket){
     for (index = 0; index < allRooms.length; index++) {
       console.log(allRooms[index]);
       if (allRooms[index] == code) {
-        socket.join(allRooms[index]);
-        console.log(socket.handshake.session.username + " JOINED ROOM: " + code);
-        console.log(io.sockets.adapter.rooms[allRooms[index]]);
         successfulJoinRoom = true;
       }
     }
     if (!successfulJoinRoom) {
       console.log(socket.handshake.session.username + " FAILED TO JOIN ROOM: " + code);
-    } 
+    } else {
+      var destination = '/public/pages/room.html';
+      socket.emit('redirect', destination);
+      socket.join(allRooms[index]);
+      console.log(socket.handshake.session.username + " JOINED ROOM: " + code);
+      console.log(io.sockets.adapter.rooms[allRooms[index]]);
+      socket.emit('getRoomNumber', code);
+    }
   })
 
   socket.on('disconnect', function(){
