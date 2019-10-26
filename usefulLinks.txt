@@ -1,9 +1,0 @@
-Useful Links: 
-https://socket.io/get-started/chat/
-https://stackoverflow.com/questions/24290699/socket-io-1-0-5-how-to-save-session-variables
-https://www.npmjs.com/package/express-socket.io-session
-https://stackoverflow.com/questions/19150220/creating-rooms-in-socket-io
-https://stackoverflow.com/questions/6631501/how-to-list-rooms-on-socket-io-nodejs-server (io.sockets.adapter.rooms)
-https://github.com/socketio/socket.io/issues/1450 io.sockets.adapter.rooms['test room']
-https://www.w3schools.com/react/react_forms.asp
-https://dev.to/captainpandaz/a-socket-io-tutorial-that-isn-t-a-chat-app-with-react-js-58jh
