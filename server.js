@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 const port = process.env.PORT || "5001";
+const path = require('path')
 
 //----------------session----------------
 var session = require("express-session")({
@@ -11,6 +12,7 @@ var session = require("express-session")({
     resave: true,
     saveUninitialized: true
 });
+
 var sharedsession = require("express-socket.io-session");
 // Use express-session middleware for express
 app.use(session);
