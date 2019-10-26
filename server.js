@@ -2,7 +2,7 @@ const express = require("express");
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-const port = process.env.PORT || "5000";
+const port = process.env.PORT || "5001";
 
 //----------------session----------------
 var session = require("express-session")({
@@ -104,5 +104,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-  console.log('listening on port 5000');
+  console.log('listening on port ' + port);
 });
