@@ -24,12 +24,8 @@ io.use(sharedsession(session, {
 var users = [];
 var allRooms = [];
 
-app.use('/public', express.static(__dirname + '/public'));
-
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/pages/login.html');
-});
-
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 io.on('connection', function(socket){
   console.log('a user connected');
