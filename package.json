@@ -2,7 +2,7 @@
   "name": "socketio",
   "version": "1.0.0",
   "description": "a test of the capabilities of socketio",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.17.0",
@@ -11,8 +11,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.js"
+    "start": "node server.js",
+    "test": "node server.js"
   },
   "repository": {
     "type": "git",
