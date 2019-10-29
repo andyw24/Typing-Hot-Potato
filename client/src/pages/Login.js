@@ -35,7 +35,7 @@ class Login extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Hello {this.state.username}</h1>
-        <p>What should we call you? OI BRUV</p>
+        <p>What should we call you? OI BRUV123</p>
         <input type='text' onChange={this.myChangeHandler}/>
         <input type='submit' value="Continue"/>
       </form>
