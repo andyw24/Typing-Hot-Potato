@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
+import { withRouter } from 'react-router-dom';
+
  
 class JoinRoom extends Component {
 
@@ -16,10 +18,10 @@ class JoinRoom extends Component {
     this.setState({username: event.target.value});
   }
 
-  mySubmitHandler = (event) => {
+  onSubmit = (event) => {
     var socket = socketIOClient(this.state.endpoint);
     event.preventDefault();
-    alert("You are submitting " + this.state.username);
+    alert("You are submitting room " + this.state.username);
     event.preventDefault(); // prevents page reloading
     socket.emit('login', this.state.username);
     return false;
@@ -27,7 +29,7 @@ class JoinRoom extends Component {
 
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler}>
+      <form onSubmit={this.onSubmit}>
         <h1>Join or Create a Room</h1>
         <p></p>
         <input type='text' onChange={this.myChangeHandler}/>
@@ -37,4 +39,4 @@ class JoinRoom extends Component {
   }
 }
  
-export default JoinRoom;
+export default withRouter(JoinRoom);

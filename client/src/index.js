@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from './pages/Login';
-import JoinRoom from './pages/JoinRoom'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import App from './App';
+import { BrowserRouter } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-	<Login />, 
+	<BrowserRouter>
+		<App />
+	</BrowserRouter>, 
 	document.getElementById('root')
 );
 

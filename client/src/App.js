@@ -1,3 +1,48 @@
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+//import '/socket.io/socket.io.js';
+
+import Login from "./pages/Login";
+import JoinRoom from "./pages/JoinRoom";
+
+export const routes = [
+  {
+    path: '/login', 
+    component: Login
+  }, 
+  {
+    path: '/joinRoom', 
+    component: JoinRoom
+  }
+]
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Route exact path="/joinRoom" component={JoinRoom} />
+        <Route exact path="/" component={Login} />
+      </Router>
+    
+    );
+  }
+}
+
+export default App;
+
+{/*
+  {routes.map(({ path, component: C}) => (
+    <Route
+      exact path={path}
+      render={(props) => <C {...props} />}
+    />
+  ))}
+          
+*/}
+
+{/*
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -8,7 +53,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-/*
+
 function App() {
   return (
     <body>
@@ -19,6 +64,7 @@ function App() {
   );
 }
 export default App;
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 class MyForm extends React.Component {
@@ -43,4 +89,4 @@ class MyForm extends React.Component {
   }
 }
 ReactDOM.render(<MyForm />, document.getElementById('root'));
-*/
+*/}
