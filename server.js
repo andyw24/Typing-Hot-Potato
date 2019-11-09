@@ -5,6 +5,9 @@ var io = require('socket.io')(http);
 const port = process.env.PORT || "5001";
 const path = require('path')
 
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'client/build')))
+
 //----------------session----------------
 var session = require("express-session")({
     secret: "session.hidden",
