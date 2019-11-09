@@ -1,29 +1,27 @@
 {
-  "name": "socketio",
+  "name": "typing-hot-potato",
   "version": "1.0.0",
-  "description": "a test of the capabilities of socketio",
+  "description": "an online multiplayer typing game",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "express-socket.io-session": "^1.3.5",
-    "path": "^0.12.7",
-    "socket.io": "^2.3.0"
-  },
-  "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "client-install": "npm install --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andyw24/socketIO.git"
+    "url": "git+https://github.com/andyw24/Typing-Hot-Potato.git"
   },
   "author": "Andy Wang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andyw24/socketIO/issues"
+    "url": "https://github.com/andyw24/Typing-Hot-Potato/issues"
   },
-  "homepage": "https://github.com/andyw24/socketIO#readme"
+  "homepage": "https://github.com/andyw24/Typing-Hot-Potato#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "express": "^4.17.1"
+  }
 }
